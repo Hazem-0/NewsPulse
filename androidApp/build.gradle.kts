@@ -18,6 +18,11 @@ dependencies {
 
     implementation(libs.compose.uiToolingPreview)
     debugImplementation(libs.compose.uiTooling)
+
+    implementation(libs.androidx.material3)
+
+    implementation(libs.coil.compose)
+
 }
 
 android {
