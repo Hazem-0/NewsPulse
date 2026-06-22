@@ -1,6 +1,6 @@
-package com.darkzoom.newspulse.presentation.view.home.components
+package com.darkzoom.newspulse.view.home.components
 
-
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,10 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-
 
 data class NewsItem(
     val imageUrl: String,
@@ -34,8 +32,9 @@ fun NewsCard(
     modifier: Modifier = Modifier
 ) {
     Card(
-        onClick = onClick,
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
@@ -77,23 +76,5 @@ fun NewsCard(
                 )
             }
         }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-private fun NewsCardPreview() {
-    MaterialTheme {
-        NewsCard(
-            news = NewsItem(
-                imageUrl = "https://picsum.photos/800/400",
-                title = "Tech Giants Unveil New AI Breakthrough at Annual Conference",
-                description = "Industry leaders showcased advancements in artificial " +
-                        "intelligence that promise to reshape everyday technology.",
-                date = "June 17, 2026"
-            ),
-            modifier = Modifier.padding(16.dp)
-        )
     }
 }
